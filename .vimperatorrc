@@ -1,0 +1,86 @@
+" tell the bell to go beep itself!
+set visualbell
+
+" -----------------------------------------------------------------
+" Searching
+" -----------------------------------------------------------------
+" find as you type
+set incsearch
+" highlight the terms
+set hlsearch
+" make searches case-insensitive
+set ignorecase
+" unless they contain upper-case letters
+" default search engine: startpage
+" :bmark https://startpage.com/do/mypage.pl?prf=ea540b57fdf0d31257929814188c17d6 -title="Startpage" -keyword=startpagecustom
+set defsearch=startpage
+set smartcase
+
+
+" Make moving up/down quicker
+noremap j 5j
+noremap k 5k
+
+" set items completed at :open prompts
+set cpt=sblth
+
+
+" tab-history.js
+nnoremap < :tabhistory back<CR>
+nnoremap > :tabhistory forward<CR>
+
+" typed chars are split on whitespace
+set hintmatching=contains
+
+" don't need <CR> in hint-mode
+set followhints=0
+
+" set hintchars
+set hintchars="asdfghjkl;"
+
+" don't focus any "input" elements when opening pages
+set focuscontent
+
+" show tabbar only
+set gui=none,tabs,addons
+" set toolbars=addons,nobookmarks,menu,navigation,tabs
+
+" show tab numbers
+set tabnumbers=true
+
+" set color scheme from ~/.vimperator/colors
+colorscheme indigo-fx3
+
+" Hide status bar when fullscreen mode is detected
+autocmd Fullscreen .* js updateBottomBar()
+
+" Re-enable bottom bar during certain commands.
+noremap : :js updateBottomBar(false)<CR>:
+noremap o :js updateBottomBar(false)<CR>o
+noremap O :js updateBottomBar(false)<CR>O
+noremap t :js updateBottomBar(false)<CR>t
+noremap T :js updateBottomBar(false)<CR>t
+noremap / :js updateBottomBar(false)<CR>/
+cnoremap <CR> <CR>:js updateBottomBar()<CR>
+cnoremap <Esc> <Esc>:js updateBottomBar()<CR>
+
+:js << EOF
+let hlContentSepValue = highlight.get('ContentSeparator').value
+
+function updateBottomBar(close = window.fullScreen) {
+  let bb = document.getElementById('liberator-bottombar')
+  if (! bb) return
+
+  if (close) {
+    bb.style.height = '0px'
+    bb.style.overflow = 'hidden'
+    liberator.execute('highlight ContentSeparator display: none;')
+  }
+  else {
+    bb.style.height = ''
+    bb.style.overflow = ''
+    liberator.execute('highlight ContentSeparator ' + hlContentSepValue)
+  }
+}
+updateBottomBar()
+EOF

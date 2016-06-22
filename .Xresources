@@ -1,0 +1,156 @@
+!xcalc-----------------------------------------------------------------------
+
+xcalc*geometry:                        200x275
+xcalc.ti.bevel.background:             #111111
+xcalc.ti.bevel.screen.background:      #000000
+xcalc.ti.bevel.screen.DEG.background:  #000000
+xcalc.ti.bevel.screen.DEG.foreground:  LightSeaGreen
+xcalc.ti.bevel.screen.GRAD.background: #000000
+xcalc.ti.bevel.screen.GRAD.foreground: LightSeaGreen
+xcalc.ti.bevel.screen.RAD.background:  #000000
+xcalc.ti.bevel.screen.RAD.foreground:  LightSeaGreen
+xcalc.ti.bevel.screen.INV.background:  #000000
+xcalc.ti.bevel.screen.INV.foreground:  Red
+xcalc.ti.bevel.screen.LCD.background:  #000000
+xcalc.ti.bevel.screen.LCD.foreground:  LightSeaGreen
+xcalc.ti.bevel.screen.LCD.shadowWidth: 0
+xcalc.ti.bevel.screen.M.background:    #000000
+xcalc.ti.bevel.screen.M.foreground:    LightSeaGreen
+xcalc.ti.bevel.screen.P.background:    #000000
+xcalc.ti.bevel.screen.P.foreground:    Yellow
+xcalc.ti.Command.foreground:  White
+xcalc.ti.Command.background:  #777777
+xcalc.ti.button5.background:  Orange3
+xcalc.ti.button19.background: #611161
+xcalc.ti.button18.background: #611161
+xcalc.ti.button20.background: #611111
+!uncomment to change label on division button
+!xcalc.ti.button20.label:      /
+xcalc.ti.button25.background: #722222
+xcalc.ti.button30.background: #833333
+xcalc.ti.button35.background: #944444
+xcalc.ti.button40.background: #a55555
+xcalc.ti.button22.background: #222262
+xcalc.ti.button23.background: #222262
+xcalc.ti.button24.background: #222272
+xcalc.ti.button27.background: #333373
+xcalc.ti.button28.background: #333373
+xcalc.ti.button29.background: #333373
+xcalc.ti.button32.background: #444484
+xcalc.ti.button33.background: #444484
+xcalc.ti.button34.background: #444484
+xcalc.ti.button37.background: #555595
+xcalc.ti.button38.background: #555595
+xcalc.ti.button39.background: #555595
+XCalc*Cursor:                 hand2
+XCalc*ShapeStyle:             rectangle
+
+
+
+! Xcursor --------------------------------------------------------------------
+
+Xcursor.theme: Vanilla-DMZ-AA
+Xcursor.size:  22
+
+Xft.autohint: 0
+Xft.lcdfilter:  lcddefault
+Xft.hintstyle:  hintfull
+Xft.hinting: 1
+Xft.antialias: 1
+Xft.rgba: rgb
+
+
+! urxvt settings
+
+
+!--[Title]--!
+
+! URxvt*title:            	urxvt
+URxvt*termName:         	rxvt-256color
+URxvt*cursorBlink:      	true
+URxvt*urgentOnBell:    true
+
+!--[URL Select]--!
+URxvt.perl-ext-common:  default,keyboard-select,url-select,clipboard
+URxvt.keysym.Mod4-x : 	perl:keyboard-select:activate
+URxvt.keysym.Mod4-i:       perl:url-select:select_next
+URxvt.keysym.Mod4-c : 	perl:clipboard:copy
+URxvt.keysym.Mod4-v : 	perl:clipboard:paste
+URxvt.keysym.Mod4-s : 	perl:keyboard-select:search
+URxvt.keysym.Mod4-S-v :	perl:clipboard:paste_escaped
+URxvt.url-launcher:      firefox
+URxvt.url-select.launcher: /usr/bin/firefox
+URxvt.underlineURLs:    true
+
+!URxvt.clipboard.copycmd: xsel --input --clipboard
+!URxvt.clipboard.pastecmd: xsel --output --clipboard
+URxvt.copyCommand:              /usr/local/bin/xclip -i -selection clipboard
+URxvt.pasteCommand:             /usr/local/bin/xclip -o -selection clipboard
+
+URxvt.iso14755: False
+
+!--[Fonts]--!
+
+URxvt.font:             xft:bitstream vera sans mono:pixelsize=11:antialias=true:hinting=true
+URxvt.boldFont: xft:bitstream vera sans mono:bold:pixelsize=11:antialias=true:hinting=true
+URxvt.italicFont: xft:bitstream vera sans mono:italic:pixelsize=11:antialias=true:hinting=true 
+URxvt.boldItalicFont: xft:bitstream vera sans mono:bold italic:pixelsize=10:antialias=true:hinting=true
+
+!URxvt.letterSpace : -1
+!
+URxvt.scrollBar:         false
+URxvt.scrollTtyOutput: false
+URxvt.scrollWithBuffer: true
+URxvt.scrollTtyKeypress: true
+URxvt.skipBuiltinGlyphs: true
+
+!--[Urxvt Options]--!
+
+URxvt.boldMode:          false
+URxvt.saveLines:         10000
+URxvt.borderless:        true
+URxvt.xftAntialias:      true
+URxvt.jumpScroll:        true
+!URxvt.internalBorder:    0
+!0Rxvt.cursorColor:       #dd9900
+!URxvt.cursorColor2:      #000000
+
+! transparency
+URxvt.depth:		32
+URxvt.inheritPixmap: true
+!URxvt.tintColor: white
+URxvt.shading: 40
+!
+URxvt.background:               #1b1b1b
+URxvt.foreground:               #FFFFFF
+!URxvt.colorBD:                  #CFCFCF
+URxvt.colorBD:                  #BABABA
+!URxvt.colorUL:                  #969696
+URxvt.colorUL:                  #FFCC99
+URxvt.colorIT:                  #686868
+!Black
+URxvt*color0:                        #3D3D3D
+URxvt*color8:                        #4D4D4D 
+!!Red
+URxvt*color1:                        #6673BF
+URxvt*color9:                        #899AFF 
+!!Green
+URxvt*color2:                        #3EA290
+URxvt*color10:                       #52AD91
+!!Yellow
+URxvt*color3:                        #B0EAD9
+URxvt*color11:                       #98C9BB
+!!Blue
+URxvt*color4:                        #31658C
+URxvt*color12:                       #477AB3
+!!Magenta
+URxvt*color5:                        #596196
+URxvt*color13:                       #7882BF
+!!Cyan
+URxvt*color6:                        #8292B2
+URxvt*color14:                       #95A7CC
+!!White
+URxvt*color7:                        #C8CACC
+URxvt*color15:                       #EDEFF2      
+!
+
