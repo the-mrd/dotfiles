@@ -21,8 +21,9 @@ export EDITOR="vim"
 export HISTSIZE=50000
 export HISTFILESIZE=50000
 export HISTCONTROL="ignoreboth"
-export HISTIGNORE="&:ls:[bf]g:exit:pwd:clear:history*:h*"
+export HISTIGNORE="&:ls:[bf]g:exit:pwd:clear:history*:h"
 export LESS="-iMFXR"
+export LESSOPEN="|lesspipe %s"
 
 # bash completion
 if [ -f /etc/profile.d/bash-completion.sh ]; then

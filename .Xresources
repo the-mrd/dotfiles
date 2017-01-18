@@ -71,15 +71,15 @@ URxvt*cursorBlink:      	true
 URxvt*urgentOnBell:    true
 
 !--[URL Select]--!
-URxvt.perl-ext-common:  default,keyboard-select,url-select,clipboard
+URxvt.perl-ext-common:  default,url-select,keyboard-select,clipboard,fork-here
+URxvt.keysym.Mod1-Shift-Return: perl:fork-here:fork-at-cwd
 URxvt.keysym.Mod4-x : 	perl:keyboard-select:activate
-URxvt.keysym.Mod4-i:       perl:url-select:select_next
+URxvt.keysym.Mod4-i:    perl:url-select:select_next
 URxvt.keysym.Mod4-c : 	perl:clipboard:copy
 URxvt.keysym.Mod4-v : 	perl:clipboard:paste
 URxvt.keysym.Mod4-s : 	perl:keyboard-select:search
 URxvt.keysym.Mod4-S-v :	perl:clipboard:paste_escaped
 URxvt.url-launcher:      firefox
-URxvt.url-select.launcher: /usr/bin/firefox
 URxvt.underlineURLs:    true
 
 !URxvt.clipboard.copycmd: xsel --input --clipboard
