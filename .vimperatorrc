@@ -1,6 +1,10 @@
 " tell the bell to go beep itself!
 set visualbell
 
+" after selecting text field, use ctrl-i to edit it in external editor
+" use bash to get right coloring
+set editor="urxvt -e bash -ic 'vim $0'"
+
 " -----------------------------------------------------------------
 " Searching
 " -----------------------------------------------------------------
@@ -51,38 +55,18 @@ set tabnumbers=true
 " set color scheme from ~/.vimperator/colors
 colorscheme indigo-fx3
 
-" Hide status bar when fullscreen mode is detected
-autocmd Fullscreen .* js updateBottomBar()
+" mpv (480p) extended hints mode script
+javascript <<EOS
+hints.addMode("u", "Open with mpv (480P):", (elem, loc) => liberator.execute("silent !mpv --title='ffmpv' --geometry=854x480 --no-resume-playback --ytdl --ytdl-format='(mp4)[height<=480][fps<=30]+bestaudio' '" + loc + "' &", null, true));
+EOS
+ 
+" mpv (720p) extended hints mode script
+javascript <<EOS
+hints.addMode("p", "Open with mpv (720P):", (elem, loc) => liberator.execute("silent !mpv --ytdl --ytdl-format='(mp4)[height<=720][fps<=30]+bestaudio' '" + loc + "' &", null, true));
+EOS
+ 
+" mpv (1080p) extended hints mode script
+javascript <<EOS
+hints.addMode("P", "Open with mpv (1080p):", (elem, loc) => liberator.execute("silent !mpv --ytdl --ytdl-format='(mp4)[height>=720][height<=?1080][fps>=30]+bestaudio' '" + loc + "' &", null, true));
+EOS
 
-" Re-enable bottom bar during certain commands.
-noremap : :js updateBottomBar(false)<CR>:
-noremap o :js updateBottomBar(false)<CR>o
-noremap O :js updateBottomBar(false)<CR>O
-noremap t :js updateBottomBar(false)<CR>t
-noremap T :js updateBottomBar(false)<CR>t
-noremap / :js updateBottomBar(false)<CR>/
-cnoremap <CR> <CR>:js updateBottomBar()<CR>
-cnoremap <Esc> <Esc>:js updateBottomBar()<CR>
-
-:js << EOF
-let hlContentSepValue = highlight.get('ContentSeparator').value
-
-function updateBottomBar(close = window.fullScreen) {
-  let bb = document.getElementById('liberator-bottombar')
-  if (! bb) return
-
-  if (close) {
-    bb.style.height = '0px'
-    bb.style.overflow = 'hidden'
-    liberator.execute('highlight ContentSeparator display: none;')
-  }
-  else {
-    bb.style.height = ''
-    bb.style.overflow = ''
-    liberator.execute('highlight ContentSeparator ' + hlContentSepValue)
-  }
-}
-updateBottomBar()
-EOF
-
-js services.services.autoCompleteSearch.class_="@mozilla.org/autocomplete/search;1?name=unifiedcomplete"
