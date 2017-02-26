@@ -79,7 +79,8 @@ URxvt.keysym.Mod4-c : 	perl:clipboard:copy
 URxvt.keysym.Mod4-v : 	perl:clipboard:paste
 URxvt.keysym.Mod4-s : 	perl:keyboard-select:search
 URxvt.keysym.Mod4-S-v :	perl:clipboard:paste_escaped
-URxvt.url-launcher:      firefox
+URxvt.url-launcher:     firefox
+URxvt.url-select.launcher:	/usr/bin/firefox
 URxvt.underlineURLs:    true
 
 !URxvt.clipboard.copycmd: xsel --input --clipboard
